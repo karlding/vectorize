@@ -1,0 +1,9 @@
+package = 'vectorize'
+version = '0.1'
+description = 'Vectorize images in Python'
+authors = ['Karl Ding']
+authors_string = ', '.join(authors)
+emails = ['karlding@users.noreply.github.com']
+license = 'MIT'
+copyright = '2016 ' + authors_string
+url = 'https://github.com/karlding/vectorize'

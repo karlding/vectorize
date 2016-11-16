@@ -5,13 +5,17 @@ language: python
 python: 2.7
 
 env:
-    - TOXENV=py26
-    - TOXENV=py27
-    - TOXENV=py33
+  - TOXENV=py26
+  - TOXENV=py27
+  - TOXENV=py33
 
 install:
-    - sudo -H pip install --upgrade pip
-    - sudo -H pip install tox
+  - sudo -H pip install --upgrade pip
+  - sudo -H pip install tox
+  - pip install coveralls
 
 script:
   - tox
+
+after_success:
+  coveralls
