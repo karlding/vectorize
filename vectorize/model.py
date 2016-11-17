@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 from vectorize.utils import average_image_colour
 
+
 class Model(object):
     def __init__(self, target_image, scale_factor):
         self.shapes = []
@@ -19,7 +20,7 @@ class Model(object):
 
     def add_shape(self, shape):
         """Add a shape in front"""
-        shapes.append(shape)
+        self.shapes.append(shape)
 
     def step(self):
         return

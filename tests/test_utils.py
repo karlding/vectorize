@@ -8,9 +8,7 @@ from PIL import Image
 import os
 
 from vectorize import utils
-from vectorize.utils import average_image_colour
 
-import py.test
 
 def test_average_image_colour_white():
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -21,6 +19,7 @@ def test_average_image_colour_white():
     assert average_colour[1] == 255
     assert average_colour[2] == 255
 
+
 def test_average_image_colour_black():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     image = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
@@ -30,12 +29,14 @@ def test_average_image_colour_black():
     assert average_colour[1] == 0
     assert average_colour[2] == 0
 
+
 def test_image_rms_diff_same_image():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     image = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
     image = image.convert('RGBA')
 
     assert utils.image_rms_diff(image, image) == 0
+
 
 def test_image_rms_diff():
     dir_path = os.path.dirname(os.path.realpath(__file__))

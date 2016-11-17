@@ -4,9 +4,8 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from PIL import Image
-
 import math
+
 
 def average_image_colour(image):
     image = image.convert('RGBA')
@@ -21,6 +20,7 @@ def average_image_colour(image):
         blue = blue + b
         count = count + 1
     return int(red / count), int(green / count), int(blue / count)
+
 
 def image_rms_diff(src, dest):
     """Calculate the difference between two images using root mean squared"""
