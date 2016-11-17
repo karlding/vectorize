@@ -15,6 +15,7 @@ def test_average_image_colour_white():
     image = Image.open(os.path.join(os.path.sep, dir_path, "white.png"))
     image = image.convert('RGBA')
     average_colour = utils.average_image_colour(image)
+
     assert average_colour[0] == 255
     assert average_colour[1] == 255
     assert average_colour[2] == 255
@@ -25,6 +26,7 @@ def test_average_image_colour_black():
     image = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
     image = image.convert('RGBA')
     average_colour = utils.average_image_colour(image)
+
     assert average_colour[0] == 0
     assert average_colour[1] == 0
     assert average_colour[2] == 0

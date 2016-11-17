@@ -23,7 +23,7 @@ def average_image_colour(image):
 
 
 def image_rms_diff(src, dest):
-    """Calculate the difference between two images using root mean squared"""
+    """Calculate the difference between two images using normalized RMS"""
     total = 0
     width, height = src.size
     for x in range(width):
