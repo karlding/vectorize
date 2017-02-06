@@ -12,5 +12,12 @@ source .venv/bin/activate
 pip install -r requirements-dev.txt
 ```
 
+To run tests and generate a coverage report
+
+```bash
+coverage run --source vectorize -m py.test
+coverage report
+```
+
 ## License
 The project is made available under the [MIT License](https://opensource.org/licenses/MIT).
