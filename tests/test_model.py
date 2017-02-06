@@ -15,7 +15,7 @@ DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 def test_initialization():
     image = Image.open(os.path.join(os.path.sep, DIR_PATH, "white.png"))
-    m = Model(image, 1)
+    m = Model(image, 1, 0)
 
     assert m.width == 200
     assert m.height == 200
@@ -23,7 +23,7 @@ def test_initialization():
 
 def test_scaled_down_initialization():
     image = Image.open(os.path.join(os.path.sep, DIR_PATH, "black.png"))
-    m = Model(image, 2)
+    m = Model(image, 2, 0)
 
     assert m.width == 100
     assert m.height == 100
@@ -31,7 +31,7 @@ def test_scaled_down_initialization():
 
 def test_scaled_up_initialization():
     image = Image.open(os.path.join(os.path.sep, DIR_PATH, "black.png"))
-    m = Model(image, 0.5)
+    m = Model(image, 0.5, 0)
 
     assert m.width == 400
     assert m.height == 400
@@ -39,7 +39,7 @@ def test_scaled_up_initialization():
 
 def test_rasterize_basic():
     image = Image.open(os.path.join(os.path.sep, DIR_PATH, "black.png"))
-    m = Model(image, 1)
+    m = Model(image, 1, 0)
     result = m.rasterize()
 
     image = image.convert('RGBA')
@@ -51,7 +51,7 @@ def test_rasterize_basic():
 
 def test_rasterize_checkerboard():
     image = Image.open(os.path.join(os.path.sep, DIR_PATH, "black.png"))
-    m = Model(image, 1)
+    m = Model(image, 1, 0)
     colour_white = (255, 255, 255, 255)
 
     expect = Image.open(os.path.join(os.path.sep, DIR_PATH, "checkers.png"))

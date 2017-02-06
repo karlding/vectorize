@@ -9,7 +9,7 @@ from vectorize.utils import average_image_colour
 
 
 class Model(object):
-    def __init__(self, target_image, scale_factor):
+    def __init__(self, target_image, scale_factor, workers):
         self.current = []
         self.shapes = []
         self.target = target_image.convert('RGBA')
@@ -19,6 +19,10 @@ class Model(object):
         width, height = target_image.size
         self.width = int(width / self.scale_factor)
         self.height = int(height / self.scale_factor)
+
+        self.workers = []
+        for i in range(workers):
+            self.workers.append(Worker(target_image))
 
     def rasterize(self):
         result = Image.new(mode='RGBA',
