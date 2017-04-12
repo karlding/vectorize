@@ -12,6 +12,14 @@ source .venv/bin/activate
 pip install -r requirements-dev.txt
 ```
 
+Or if you use ``pyenv``.
+
+```bash
+pyenv virtualenv 3.3.6 vectorize336
+source ~/.pyenv/versions/vectorize336/bin/activate
+pip install -r requirements-dev.txt
+```
+
 To run tests and generate a coverage report
 
 ```bash
