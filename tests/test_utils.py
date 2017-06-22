@@ -10,7 +10,7 @@ import os
 from vectorize import utils
 
 
-def test_average_image_colour_white():
+def test_average_image_colour_white_png():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     image = Image.open(os.path.join(os.path.sep, dir_path, "white.png"))
     image = image.convert('RGBA')
@@ -21,7 +21,7 @@ def test_average_image_colour_white():
     assert average_colour[2] == 255
 
 
-def test_average_image_colour_black():
+def test_average_image_colour_black_png():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     image = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
     image = image.convert('RGBA')
@@ -32,6 +32,16 @@ def test_average_image_colour_black():
     assert average_colour[2] == 0
 
 
+def test_average_image_colour_black_jpg():
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    image = Image.open(os.path.join(os.path.sep, dir_path, "black.jpg"))
+    image = image.convert('RGBA')
+    average_colour = utils.average_image_colour(image)
+
+    assert average_colour[0] == 0
+    assert average_colour[1] == 0
+    assert average_colour[2] == 0
+
 def test_image_rms_diff_same_image():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     image = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
@@ -40,7 +50,7 @@ def test_image_rms_diff_same_image():
     assert utils.image_rms_diff(image, image) == 0
 
 
-def test_image_rms_diff():
+def test_image_rms_diff_image_black_white_png():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     black = Image.open(os.path.join(os.path.sep, dir_path, "black.png"))
     black = black.convert('RGBA')
